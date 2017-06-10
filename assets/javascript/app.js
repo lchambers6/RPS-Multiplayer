@@ -14,6 +14,21 @@ $(document).ready(function() {
   firebase.initializeApp(config);
 
   var database = firebase.database();
-  
+  var msg = "";
+
+   $("#submitButton").on("click", function(event) {
+      event.preventDefault();
+
+      msg = $("#messageInput").val();
+
+      database.ref().child("chat").push({
+        message: msg
+
+      });
+    });
+
+   database.ref().child("chat").on("child_added", function(childSnapshot) {
+    $("#msgBox").append("<p>" + childSnapshot.val().message + "</p>");
+   });
 
 });

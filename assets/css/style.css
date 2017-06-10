@@ -18,11 +18,12 @@ h1 {
 	background-color: white;
 	padding: 10px;
 	margin-bottom: 25px;
-	height: 30vh;
+	height: 40vh;
+	overflow: auto;
 }
 
 #msgbox p {
-	color: darkgrey;
+	color: black;
 }
 
 .form-control {

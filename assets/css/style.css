@@ -33,4 +33,8 @@ h1 {
 .control-label {
 	margin-bottom: 0px;
 	color: white;
-} 
+}
+
+.btn {
+	margin-right: 5px;
+}

@@ -15,6 +15,7 @@ $(document).ready(function() {
 
   var database = firebase.database();
   var msg = "";
+  var user1 = "Player 1";
 
   $("#submitButton").on("click", function(event) {
     event.preventDefault();
@@ -22,6 +23,8 @@ $(document).ready(function() {
     database.ref().child("chat").push({
       message: msg
     });
+    $("form").trigger("reset");
+    $("#msgBox").scrollTop($("#msgBox")[0].scrollHeight);
   });
 
   $("#clearButton").on("click", function(event) {
@@ -30,14 +33,11 @@ $(document).ready(function() {
   });
 
   database.ref().child("chat").on("child_added", function(snapshot) {
-    // if (!snapshot.hasChild("chat")) {
-    //    $("#msgBox").empty();
-    // }
-    $("#msgBox").append("<p>" + snapshot.val().message + "</p>");
+    $("#msgBox").append("<p>" + user1 + ":<br>" + snapshot.val().message + "</p>");
   });
 
   function removeChild(childName) {
     database.ref().child(childName).remove();
-    $("#msgBox").html("<span style='color:grey'>Messages will appear here</span>");
+    $("#msgBox").html("<div id='initialMsg'><span style='color:grey'>Messages will appear here</span></div>");
   }
 });

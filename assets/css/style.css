@@ -1,0 +1,35 @@
+body {
+	background-color: black;
+}
+
+h1 {
+	color: white;
+}
+
+.player {
+	border: 2px solid white;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	height: 30vh;
+}
+
+#msgBox {
+	background-color: white;
+	padding: 10px;
+	margin-bottom: 25px;
+	height: 30vh;
+}
+
+#msgbox p {
+	color: darkgrey;
+}
+
+.form-control {
+	margin-bottom: 10px;
+}
+
+.control-label {
+	margin-bottom: 0px;
+	color: white;
+} 

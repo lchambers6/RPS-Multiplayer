@@ -15,12 +15,12 @@ $(document).ready(function() {
 
   var database = firebase.database();
   var msg = "";
-  var user1 = "Player 1";
+  var player1 = "User1";
 
   $("#submitButton").on("click", function(event) {
     event.preventDefault();
     msg = $("#messageInput").val();
-    database.ref().child("chat").push({
+    database.ref("chat").push({
       message: msg
     });
     $("form").trigger("reset");
@@ -32,9 +32,17 @@ $(document).ready(function() {
     removeChild("chat");
   });
 
-  database.ref().child("chat").on("child_added", function(snapshot) {
-    $("#msgBox").append("<p>" + user1 + ":<br>" + snapshot.val().message + "</p>");
+  // database.ref().on("child_added", function(snapshot) {
+  //   $("#msgBox").append("<p>" + player1 + ":<br>" + snapshot.val().message + "</p>");
+  //     console.log(snapshot.child("chat").numChildren());
+  // console.log(snapshot.toJSON());
+  // });
+
+  database.ref("chat").on("child_added", function(snapshot) {
+    $( "#initialMsg" ).remove();
+    $("#msgBox").append("<p>" + player1 + ":<br>" + snapshot.val().message + "</p>");
   });
+    
 
   function removeChild(childName) {
     database.ref().child(childName).remove();

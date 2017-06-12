@@ -4,6 +4,7 @@ body {
 
 h1 {
 	color: white;
+	font-size: 20px;
 }
 
 .player {
@@ -11,14 +12,29 @@ h1 {
 	text-align: center;
 	margin-top: 15px;
 	margin-bottom: 25px;
-	height: 30vh;
+	height: 35vh;
+	padding: 0;
+}
+
+.player p {
+	color: white;
+	font-size: 10px;
+}
+
+.player h3 {
+	color: white;
+	font-size: 12px;
+}
+
+#playerName {
+	text-align: center;
 }
 
 #msgBox {
 	background-color: white;
 	padding: 10px;
 	margin-bottom: 25px;
-	height: 25vh;
+	height: 20vh;
 	overflow: auto;
 }
 
